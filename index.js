@@ -1,0 +1,2 @@
+require('./getLocationData')
+require('./getCharacterLocations')
