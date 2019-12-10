@@ -129,7 +129,7 @@ var mymap = L.map('mapid', {
     crs: L.CRS.Simple,
     minZoom: 1,
     maxZoom: 7,
-    layers: [locations, characterLocations, gridLines]
+    layers: [politicalMap, locations, characterLocations, gridLines]
 })
 
 L.control.layers(baseLayer, overlayLayer).addTo(mymap).setPosition('topleft')
