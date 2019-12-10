@@ -102,7 +102,21 @@ fetch('http://localhost:5000/characterLocations')
         })
     })
 
+var bounds = [[270, -480], [-270, 480]];
+var biomeMap = L.imageOverlay('maps/biomeMap.svg', bounds)
+var physicalMap = L.imageOverlay('maps/physicalMap.svg', bounds)
+var temperatureMap = L.imageOverlay('maps/temperatureMap.svg', bounds)
+var precipitationMap = L.imageOverlay('maps/precipitationMap.svg', bounds)
+var populationMap = L.imageOverlay('maps/populationMap.svg', bounds)
+var politicalMap = L.imageOverlay('maps/politicalMap.svg', bounds)
+
 var baseLayer = {
+    'Political Map': politicalMap,
+    'Biomes': biomeMap,
+    'Height Map': physicalMap,
+    'Temperature Map': temperatureMap,
+    'Rainfall Map': precipitationMap,
+    'Population Map': populationMap
 }
 
 var overlayLayer = {
@@ -117,9 +131,6 @@ var mymap = L.map('mapid', {
     maxZoom: 7,
     layers: [locations, characterLocations, gridLines]
 })
-
-var bounds = [[270, -480], [-270, 480]];
-L.imageOverlay('fullMap.svg', bounds).addTo(mymap)
 
 L.control.layers(baseLayer, overlayLayer).addTo(mymap).setPosition('topleft')
 
